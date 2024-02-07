@@ -47,3 +47,19 @@ def handle_conversation():
         )
 
         text = response['choices'][0]['messages']['content']
+
+        audio = elevenlabs.generate(
+            text=text,
+            voice="Adam"
+        )
+
+        print("\nAI:", text, end="\r\n")
+
+        elevenlabs.play(audio)
+
+def main():
+    handle_conversation()
+    return 0
+
+if __name__ == "__main__":
+    main()

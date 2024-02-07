@@ -24,4 +24,26 @@ def on_data(transcript: aai.RealtimeTranscript):
 def on_error(error: aai.RealtimeError):
     print("An error occurred: ", error)
 
+def handle_conversation():
+    while True:
+        transcriber = aai.RealtimeTranscriber(
+            on_data=on_data,
+            on_error=on_error,
+            sample_rate=44_100,
+        )
+
+        transcriber.connect()
+        microphone_stream = aai.extras.MicrophoneStream()
+        transcriber.stream(microphone_stream)
+        transcriber.close()
+        transcript_result = transcript_queue.get()
     
+        response = openai.ChatCompletion.create(
+            model = 'gpt-3.5',
+            messages = [
+                {"role": "system", "content": "You are a highly skilled AI, answer the questions given within a maximum of 1000 characters."},
+                {"role": "system", "content": transcript_result}
+            ]
+        )
+
+        text = response['choices'][0]['messages']['content']

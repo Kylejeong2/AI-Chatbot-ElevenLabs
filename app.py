@@ -8,7 +8,7 @@ load_dotenv()
  
 aai.settings.api_key = os.aai_api_key #unknown api
 openai.api_key = os.openai_api_key #unknown api
-elevenlabs.api_key = os.elevenlabs_api_key #unknown
+elevenlabs.api_key = os.elevenlabs_api_key #unknown api
 
 transcript_queue = Queue()
 

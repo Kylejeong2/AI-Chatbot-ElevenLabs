@@ -37,7 +37,8 @@ def handle_conversation():
         transcriber.stream(microphone_stream)
         transcriber.close()
         transcript_result = transcript_queue.get()
-    
+
+        #give open ai response
         response = openai.ChatCompletion.create(
             model = 'gpt-3.5',
             messages = [

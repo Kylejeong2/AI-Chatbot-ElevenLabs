@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
  
-aai.settings.api_key = os.aai_api_key #unknown api
-openai.api_key = os.openai_api_key #unknown api
-elevenlabs.api_key = os.elevenlabs_api_key #unknown api
+aai.settings.api_key = os.aai_api_key 
+openai.api_key = os.openai_api_key 
+elevenlabs.api_key = os.elevenlabs_api_key 
 
 transcript_queue = Queue()
 
@@ -54,7 +54,6 @@ def handle_conversation():
         )
 
         print("\nAI:", text, end="\r\n")
-
         elevenlabs.play(audio)
 
 def main():

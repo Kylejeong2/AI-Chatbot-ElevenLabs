@@ -31,7 +31,6 @@ def handle_conversation():
             on_error=on_error,
             sample_rate=44_100,
         ) 
-        
         transcriber.connect()
         microphone_stream = aai.extras.MicrophoneStream()
         transcriber.stream(microphone_stream)

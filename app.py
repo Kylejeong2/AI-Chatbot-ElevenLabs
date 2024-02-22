@@ -55,7 +55,6 @@ def handle_conversation():
 
         print("\nAI:", text, end="\r\n")
         elevenlabs.play(audio)
-        
 
 def main():
     handle_conversation()

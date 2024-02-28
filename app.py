@@ -52,7 +52,6 @@ def handle_conversation():
             text=text,
             voice="Adam"
         )
-
         print("\nAI:", text, end="\r\n")
         elevenlabs.play(audio)
 

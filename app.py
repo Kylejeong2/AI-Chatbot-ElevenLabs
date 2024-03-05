@@ -47,7 +47,6 @@ def handle_conversation():
         )
         
         text = response['choices'][0]['messages']['content']
-
         audio = elevenlabs.generate(
             text=text,
             voice="Adam"

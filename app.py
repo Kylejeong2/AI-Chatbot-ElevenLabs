@@ -45,7 +45,6 @@ def handle_conversation():
                 {"role": "system", "content": transcript_result}
             ]
         )
-
         
         text = response['choices'][0]['messages']['content']
         audio = elevenlabs.generate(
